@@ -22,8 +22,22 @@ def add_book():
             print('Error. Debe ser un número entero.\n')
 
     book = Libro(title, author, year)
+    print()
 
     books.append(book)
+
+def remove_book():
+    title = input('Ingrese el titulo del libro: ')
+    found = False
+    for book in books:
+        if book.title.lower() == title.lower():
+            books.remove(book)
+            print('Libro eliminado.\n')
+            found = True
+            break
+    if not found:
+        print('Libro no encontrado.\n')
+
 
 while True:
     print('-----MENÚ-----')
@@ -49,7 +63,7 @@ while True:
                 print('No hay libros registrados.\n')
 
         case '3':
-            pass
+            remove_book()
 
         case '4':
             print('Saliendo del programa...')
